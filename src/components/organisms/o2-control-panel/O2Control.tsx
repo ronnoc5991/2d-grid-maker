@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import M1Button from "../../molecules/m1-button";
-import "./styles.css";
 
 type O2ControlPanelProps = {
   title: string;
@@ -14,7 +13,7 @@ const O2ControlPanel: FunctionComponent<O2ControlPanelProps> = ({
   onToggle,
 }) => {
   return (
-    <div className="control-panel">
+    <div>
       <M1Button onClick={() => onToggle()} title={title} />
       {isOpen && <div>I am open</div>}
     </div>
