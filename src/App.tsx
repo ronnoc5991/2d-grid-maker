@@ -3,12 +3,15 @@ import { v4 as uuidv4 } from "uuid";
 import O1Toolbar from "./components/organisms/o1-toolbar";
 import O2ControlPanel from "./components/organisms/o2-control-panel";
 import O3CellVariantControl from "./components/organisms/o3-cell-variant-control";
+import O4GridDimensionsControl from "./components/organisms/o4-grid-dimensions-control/O4GridDimensionsControl";
 import defaultCellVariant from "./config/defaultCellVariant";
+import defaultGridDimensions from "./config/defaultGridDimensions";
 import type { CellVariant } from "./types/CellVariant";
 
 // TODO: Decide if I will use Canvas or not?
 // TODO: support zooming? (this could be done on canvas) and dragging?
 // TODO: Create component that contains options/takes a function/reports changes
+// TODO: Should show the grid with numbers, so I know what coordinates I am at?
 
 // type ControlPanel = {
 //   title: string;
@@ -25,6 +28,8 @@ function App() {
   const [cellVariants, setCellVariants] = useState<
     Array<CellVariant & { id: string }>
   >([{ ...defaultCellVariant, id: uuidv4() }]);
+
+  const [gridDimensions, setGridDimensions] = useState(defaultGridDimensions);
 
   return (
     <div className="app">
@@ -55,6 +60,15 @@ function App() {
           Add New Cell Variant
         </button>
       </div>
+      <O4GridDimensionsControl
+        dimensions={gridDimensions}
+        onChange={(key, value) =>
+          setGridDimensions((previousGridDimensions) => ({
+            ...previousGridDimensions,
+            [key]: value,
+          }))
+        }
+      />
       {/* <O1Toolbar position="bottom">
         {controlPanels.map(({ title, isOpen }) => (
           <O2ControlPanel

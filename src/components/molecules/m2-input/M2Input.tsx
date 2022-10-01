@@ -3,7 +3,7 @@ import { FunctionComponent, HTMLInputTypeAttribute } from "react";
 type M2InputProps = {
   label: string;
   name: string;
-  value: string;
+  value: string | number;
   type: HTMLInputTypeAttribute;
   onChange: (value: HTMLInputElement["value"]) => void;
 };
