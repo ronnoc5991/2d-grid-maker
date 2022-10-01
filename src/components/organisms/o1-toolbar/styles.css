@@ -1,0 +1,29 @@
+.toolbar {
+  border: 1px solid blue;
+  position: absolute;
+  padding: 10px;
+}
+
+.top {
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.bottom {
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.left {
+  bottom: 0;
+  left: 0;
+  top: 0;
+}
