@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import O1Toolbar from "./components/organisms/o1-toolbar";
-import O2ControlPanel from "./components/organisms/o2-control-panel";
+// import O1Toolbar from "./components/organisms/o1-toolbar";
+// import O2ControlPanel from "./components/organisms/o2-control-panel";
 import O3CellVariantControl from "./components/organisms/o3-cell-variant-control";
 import O4GridDimensionsControl from "./components/organisms/o4-grid-dimensions-control/O4GridDimensionsControl";
 import defaultCellVariant from "./config/defaultCellVariant";
