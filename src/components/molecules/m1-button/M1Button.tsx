@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import "./styles.css";
 
 type M1ButtonProps = {
   label?: string;
@@ -11,7 +12,7 @@ const M1Button: FunctionComponent<M1ButtonProps> = ({
   title,
   onClick,
 }) => (
-  <button onClick={onClick} title={title}>
+  <button className="button" onClick={onClick} title={title}>
     {label}
   </button>
 );

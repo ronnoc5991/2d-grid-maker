@@ -7,3 +7,11 @@
   justify-content: center;
   flex-wrap: nowrap;
 }
+
+.cell {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

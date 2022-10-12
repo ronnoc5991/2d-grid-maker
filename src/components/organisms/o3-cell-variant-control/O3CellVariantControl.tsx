@@ -1,18 +1,21 @@
 import { FunctionComponent, useState } from "react";
-import { CellVariant, CellVariantProperty } from "../../../types/CellVariant";
+import type { CellVariant } from "../../../types/CellVariant";
 import M2Input from "../../molecules/m2-input";
 
 type O3CellVariantControlProps = CellVariant & {
-  onChange: (key: CellVariantProperty, value: string) => void;
+  onSelect: () => void;
+  onSave: (cellVariant: Omit<CellVariant, "id">) => void;
 };
 
 const O3CellVariantControl: FunctionComponent<O3CellVariantControlProps> = ({
-  name,
-  value,
-  color,
-  onChange,
+  onSelect,
+  onSave,
+  ...props
 }) => {
   const [isEditable, setIsEditable] = useState(true);
+  const [name, setName] = useState(props.name);
+  const [value, setValue] = useState(props.value);
+  const [color, setColor] = useState(props.color);
 
   return (
     <div>
@@ -23,23 +26,30 @@ const O3CellVariantControl: FunctionComponent<O3CellVariantControlProps> = ({
             label="Name"
             name="name"
             value={name}
-            onChange={(value) => onChange("name", value)}
+            onChange={(value) => setName(value)}
           />
           <M2Input
             type="text"
             label="Value"
             name="value"
             value={value}
-            onChange={(value) => onChange("value", value)}
+            onChange={(value) => setValue(value)}
           />
           <M2Input
             type="color"
             label="Color"
             name="color"
             value={color}
-            onChange={(value) => onChange("color", value)}
+            onChange={(value) => setColor(value)}
           />
-          <button onClick={() => setIsEditable(false)}>Save</button>
+          <button
+            onClick={() => {
+              onSave({ value, name, color });
+              setIsEditable(false);
+            }}
+          >
+            Save
+          </button>
         </>
       )}
       {!isEditable && (
@@ -48,6 +58,7 @@ const O3CellVariantControl: FunctionComponent<O3CellVariantControlProps> = ({
           {value}
           {color}
           <button onClick={() => setIsEditable(true)}>Edit</button>
+          <button onClick={() => onSelect()}>Select Me</button>
         </>
       )}
     </div>
