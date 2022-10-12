@@ -1,0 +1,9 @@
+.grid-display {
+  display: grid;
+}
+
+.grid-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}

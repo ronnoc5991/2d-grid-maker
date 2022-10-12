@@ -2,7 +2,7 @@ import { CellVariant } from "../types/CellVariant";
 
 const defaultCellVariant: CellVariant = {
   name: "Default Name",
-  value: "Default Value",
+  value: "X",
   color: "#000000",
 };
 
