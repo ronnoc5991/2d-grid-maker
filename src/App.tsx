@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import O3CellVariantControl from "./components/organisms/o3-cell-variant-control";
 import O4GridDimensionsControl from "./components/organisms/o4-grid-dimensions-control";
 import O5GridDisplay from "./components/organisms/o5-grid-display";
+import O6GridUpload from "./components/organisms/o6-grid-upload";
 import defaultCellVariant from "./config/defaultCellVariant";
 import defaultGridDimensions from "./config/defaultGridDimensions";
 import type { CellVariant } from "./types/CellVariant";
@@ -134,6 +135,12 @@ function App() {
       >
         Copy to clipboard
       </button>
+      <O6GridUpload
+        onSubmit={(newGrid, newCellVariants) => {
+          setGrid(newGrid);
+          setCellVariants(newCellVariants);
+        }}
+      />
     </div>
   );
 }
