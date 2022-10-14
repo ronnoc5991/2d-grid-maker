@@ -139,6 +139,10 @@ function App() {
         onSubmit={(newGrid, newCellVariants) => {
           setGrid(newGrid);
           setCellVariants(newCellVariants);
+          setGridDimensions({
+            rows: newGrid.length,
+            columns: newGrid[0].length,
+          });
         }}
       />
     </div>
